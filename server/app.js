@@ -38,6 +38,7 @@ const sendgrid = async(emails) => {
             .then(([response, body]) => {
                 console.log(response.statusCode);
                 console.log(response.body);
+                console.log(new Date().toLocaleDateString());
             })
     } catch (e) {
         console.log(e.message);
