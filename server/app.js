@@ -36,7 +36,7 @@ const sendgrid = async(contactData) => {
     try {
         const data = {
             "list_ids": [
-                "917beafa-f638-44f7-be42-c6ac6e9c91ff"
+                "47d1eb1a-6fb0-4aa7-8542-bee17d134c89"
             ],
             "contacts": contactData
         };
