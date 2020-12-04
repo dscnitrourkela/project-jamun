@@ -11,24 +11,34 @@ express.use(bodyParser.json());
 
 express.post("/addContact", async(req, res) => {
     const typeformResponse = req.body['form_response']['answers'];
+    const userNameField = typeformResponse.filter((each) => {
+        return each.type == 'text';
+    })
     const emailField = typeformResponse.filter((each) => {
         return each.type == 'email';
     })
+
+    const firstName = userNameField[0].text;
+    const lastName = userNameField[1].text;
     const userEmail = emailField[0].email;
+    console.log(firstName);
+    console.log(lastName);
     await sendgrid([{
+        first_name: firstName,
+        last_name: lastName,
         email: userEmail
     }]);
     res.sendStatus(200);
 
 })
 
-const sendgrid = async(emails) => {
+const sendgrid = async(contactData) => {
     try {
         const data = {
             "list_ids": [
                 "917beafa-f638-44f7-be42-c6ac6e9c91ff"
             ],
-            "contacts": emails
+            "contacts": contactData
         };
 
         request.body = data;
