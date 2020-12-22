@@ -12,7 +12,7 @@ client.setApiKey(process.env.SENDGRID_API_KEY);
 // support parsing of application/json type post data
 express.use(bodyParser.json());
 
-const discordHook = new Webhook('https://discord.com/api/webhooks/790893557329428481/4uAeCQNdGteSjndiGBZgNgXVOaYNfDolNEdlw78qLORsfW6njLMUXGQRzsLmo3r5rlBr');
+const discordHook = new Webhook(process.env.DISCORD_WEBHOOK);
 
 express.post("/addContact", async(req, res) => {
     const typeformResponse = req.body['form_response']['answers'];
