@@ -42,19 +42,6 @@ const validate = new RegExp(
     '^(1|2|3|4|5|7)[0-9][0-9]((AR|AS|BM|BT|CH|CE|CR|CS|CY|EC|EI|EE|ER|FP|HS|ID|LS|MA|ME|MN|MM|PA|PH|SM)|(ar|as|bm|bt|ch|ce|cr|cs|cy|ec|ei|ee|er|fp|hs|id|ls|ma|me|mn|mm|pa|ph|sm))[0-9]{4}$'
    );
     if (!validate.test(rollNo)) {
-        
-        // express.post(discordHook, (req, res)=>{
-        //     const data = {
-        //         username : "Jamun",
-        //         avatar_url: "",
-        //         content: `${firstName} has entered a wrong Roll No. (${rollNo})`
-        //     };
-
-        //     console.log(data);
-
-        //     res.send(JSON.stringify(data));
-            
-        // } )
 
         discordHook.setUsername('Jamun');
         discordHook.send(`${firstName} ${lastName} has entered a wrong roll No.(${rollNo})`);
